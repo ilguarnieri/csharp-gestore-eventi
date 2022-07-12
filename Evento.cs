@@ -96,9 +96,9 @@ namespace GestoreEventi
         {
             try
             {
-                if(DateTime.Compare(this.data, DateTime.Now) >= 0)
+                if(DateTime.Compare(this.Data, DateTime.Now) >= 0)
                 {
-                    if(this.capienza - this.PostiPrenotati >= posti)
+                    if(this.Capienza - this.PostiPrenotati >= posti)
                     {
                         this.PostiPrenotati += posti;
                     }
@@ -121,7 +121,36 @@ namespace GestoreEventi
 
         public void DisdiciPosti(int posti)
         {
+            try
+            {
+                if( DateTime.Compare(this.Data, DateTime.Now) >= 0)
+                {
+                    if (this.PostiPrenotati >= posti)
+                    {
+                        //prenota
+                        this.PostiPrenotati -= posti;
+                    }
+                    else
+                    {
+                        throw new Exception("Non ci sono posti da disdire sufficienti!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("L'evento è concluso!");
+                }
 
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+
+        public override string ToString()
+        {
+            return this.Data.ToString("dd/MM/yyyy") + " - " + this.Titolo;
         }
 
 
