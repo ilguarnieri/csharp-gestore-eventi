@@ -96,11 +96,8 @@ do
         catch (Exception e)
         {
             Console.WriteLine("\n" + e.Message + "\n");
-            errorInput = true;
-        }
-        finally
-        {
             nuovoEvento = null;
+            errorInput = true;
         }
 
     } while (errorInput);
@@ -131,4 +128,17 @@ else
     Console.WriteLine("Non ci sono eventi in programma.");
 }
 
-programma.CancellaEventi();
+
+//programma.CancellaEventi();
+
+
+Console.WriteLine("\n\n- - - - BONUS - - - -");
+
+Console.WriteLine("\nAggiungiamo una conferenza!");
+
+Conferenza nuovaConferenza = Conferenza.CreaConferenza();
+
+programma.AggiungiEvento(nuovaConferenza);
+
+Console.WriteLine("Ecco il tuo programma eventi con anche le Conferenze:");
+Console.WriteLine(programma.DettaglioProgramma());

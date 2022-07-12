@@ -48,7 +48,7 @@ namespace GestoreEventi
 
             foreach(Evento evento in eventi)
             {
-                result = result + $"\t{evento.Data.ToString("dd/MM/yyyy")} - {evento.Titolo}\n";
+                result = result + $"\t{evento.ToString()}\n";
             }
 
             return result;
