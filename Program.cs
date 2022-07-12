@@ -1,24 +1,14 @@
 ﻿
 using GestoreEventi;
 
-Console.Write("Inserisci il nome dell'evento: ");
-string titolo = Console.ReadLine();
+Evento evento = Evento.CreaEvento();
 
-Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
-DateTime data = Convert.ToDateTime(Console.ReadLine());
-
-Console.Write("Inserisci il numero di posti totali: ");
-int capienza = Int32.Parse(Console.ReadLine());
-
-
-Evento evento = new Evento(titolo, data, capienza);
-
-Console.Write("Desideri prenotare dei posti (s/n)?");
+Console.Write("\nDesideri prenotare dei posti (s/n)? ");
 string choicePrenotazione = Console.ReadLine();
 
 while(choicePrenotazione != "s" && choicePrenotazione != "n")
 {
-    Console.WriteLine("Inserisci un valore corretto s/n");
+    Console.Write("Inserisci un valore corretto s/n ");
     choicePrenotazione = Console.ReadLine();
 }
 
@@ -37,7 +27,7 @@ bool yesChoice = false;
 
 do
 {
-    Console.WriteLine("\nVuoi disdire dei posti (s/n)?");
+    Console.Write("\nVuoi disdire dei posti (s/n)? ");
     string choiceDisdici = Console.ReadLine();
 
     while (choiceDisdici != "s" && choiceDisdici != "n")

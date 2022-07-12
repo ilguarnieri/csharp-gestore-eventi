@@ -147,10 +147,29 @@ namespace GestoreEventi
         }
 
 
-
         public override string ToString()
         {
             return this.Data.ToString("dd/MM/yyyy") + " - " + this.Titolo;
+        }
+
+
+
+        public static Evento CreaEvento()
+        {
+            Console.WriteLine("\n* Creazione nuovo evento *\n");
+
+            Console.Write("Inserisci il nome dell'evento: ");
+            string titolo = Console.ReadLine();
+
+            Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+            DateTime data = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("Inserisci il numero di posti totali: ");
+            int capienza = Int32.Parse(Console.ReadLine());
+
+            Evento evento = new Evento(titolo, data, capienza);
+
+            return evento;
         }
 
     }
