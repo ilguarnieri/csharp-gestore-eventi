@@ -16,13 +16,13 @@ namespace GestoreEventi
         public ProgrammaEventi (string titolo)
         {
             this.Titolo = titolo;
-            eventi = new List<Evento>();
+            this.eventi = new List<Evento>();
         }
 
 
         public void AggiungiEvento(Evento evento)
         {
-            eventi.Add(evento);
+            this.eventi.Add(evento);
         }
 
         public List<Evento> ListaEventiData(DateTime data)
@@ -44,35 +44,36 @@ namespace GestoreEventi
 
         public static string StampaEventi(List<Evento> eventi)
         {
-            string stamp = "";
+            string result = "";
 
             foreach(Evento evento in eventi)
             {
-                stamp += evento.ToString();
+                result = result + $"\t{evento.Data.ToString("dd/MM/yyyy")} - {evento.Titolo}\n";
             }
 
-            return stamp;
+            return result;
         }
 
 
 
         public int TotaleEventi()
         {
-            return eventi.Count;
+            return this.eventi.Count;
         }
 
 
 
         public void CancellaEventi()
         {
-            eventi.Clear();
+            this.eventi.Clear();
         }
 
 
         public string DettaglioProgramma()
         {
-            return this.Titolo + ":\n" + StampaEventi(eventi);
+            return $"{this.Titolo}:\n" + ProgrammaEventi.StampaEventi(this.eventi);
         }
+
 
     }
 }

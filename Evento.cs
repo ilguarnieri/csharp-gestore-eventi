@@ -156,7 +156,6 @@ namespace GestoreEventi
 
         public static Evento CreaEvento()
         {
-            Console.WriteLine("\n* Creazione nuovo evento *\n");
 
             Console.Write("Inserisci il nome dell'evento: ");
             string titolo = Console.ReadLine();
