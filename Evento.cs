@@ -153,8 +153,5 @@ namespace GestoreEventi
             return this.Data.ToString("dd/MM/yyyy") + " - " + this.Titolo;
         }
 
-
-
-
     }
 }
